@@ -1,3 +1,6 @@
+" credits: http://nvie.com/posts/how-i-boosted-my-vim/
+" https://github.com/robconery/vim-settings
+
 " quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>sv :so $MYVIMRC<cr>
@@ -7,7 +10,6 @@ nmap <silent> <leader>sv :so $MYVIMRC<cr>
 set nocompatible
 
 " (...) never ever let Vim write a backup file! They did that in the 70’s...
-" http://nvie.com/posts/how-i-boosted-my-vim/
 set nobackup
 set noswapfile
 
@@ -44,6 +46,13 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
+
+" switch to paste mode, disabling all kinds of smartness 
+" and just pasting a whole buffer of text
+set pastetoggle=<F2>
+
+" some stuff to get the mouse going in term
+set mouse=a
 
 " turn on syntax highlighting
 syntax on
