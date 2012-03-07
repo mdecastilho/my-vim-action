@@ -1,12 +1,31 @@
-"Use Vim settings, rather then Vi settings (much better!).
-"This must be first, because it changes other options as a side effect.
+" quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<cr>
+nmap <silent> <leader>sv :so $MYVIMRC<cr>
+
+" use Vim settings, rather then Vi settings (much better!).
+" this must be first, because it changes other options as a side effect.
 set nocompatible
 
-"allow backspacing over everything in insert mode
+" (...) never ever let Vim write a backup file! They did that in the 70’s...
+" http://nvie.com/posts/how-i-boosted-my-vim/
+set nobackup
+set noswapfile
+
+" hide buffers when not displayed
+set hidden
+
+" find the next match as we type the search
+" hilight searches by default
+set incsearch   
+set hlsearch    
+
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-"store lots of :cmdline history
+" store lots of :cmdline history
 set history=1000
+
+" colors and fonts
 colorscheme vividchalk 
 
 if has("gui_running")
@@ -17,14 +36,25 @@ if has("gui_running")
   endif
 endif
 
-"line numbers
+" line numbers
 set number
 
-"indent settings
+" indent settings
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
 
-"turn on syntax highlighting
+" turn on syntax highlighting
 syntax on
+
+"load ftplugins and indent files
+filetype plugin on
+filetype indent on
+
+" use pathogen (https://github.com/tpope/vim-pathogen) 
+" to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
