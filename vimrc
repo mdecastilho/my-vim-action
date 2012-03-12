@@ -1,7 +1,7 @@
 " credits: 
 " http://nvie.com/posts/how-i-boosted-my-vim/
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/s
-" http://wekeroad.com/2010/07/29/vim-is-your-daddy/ (https://github.com/robconery/vim-setting)
+" http://wekeroad.com/2010/07/29/vim-is-your-daddy/
 " http://derekwyatt.org/vim/vim-tutorial-videos/vim-novice-tutorial-videos/
 
 " use Vim settings, rather then Vi settings (much better!).
@@ -77,8 +77,18 @@ set pastetoggle=<F2>
 " some stuff to get the mouse going in term
 set mouse=a
 
-" from http://vimeo.com/6329762
+" make the 'cw' and like commands put a $ at the end instead of just deleting
+" the text and replacing it
 set cpoptions+=$
+
+" make command line two lines high
+set ch=2
+
+" set the status line the way i (derekwyatt) like it
+set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+
+" tell VIM to always put a status line in, even if there is only one window
+set laststatus=2
 
 " turn on syntax highlighting
 syntax on
