@@ -90,6 +90,9 @@ set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
 
+" make the command-line completion better
+set wildmenu
+
 " turn on syntax highlighting
 syntax on
 
