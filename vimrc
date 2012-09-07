@@ -44,22 +44,25 @@ set backspace=indent,eol,start
 " store lots of :cmdline history
 set history=1000
 
+" 256 colors in terminal
+set t_Co=256
+
 " colors and fonts
-colorscheme vividchalk 
+colorscheme molokai
 
 if has("gui_running")
-  if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
-  elseif has("gui_win32")
-    set guifont=Consolas:h10:cANSI
-  endif
+    if has("gui_gtk2")
+        set guifont=Inconsolata\ 12
+    elseif has("gui_win32")
+        set guifont=Consolas:h10:cANSI
+    endif
 endif
 
 " http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
 " remove menu bar/toolbar/right-hand scroll bar
-:set guioptions-=m
-:set guioptions-=T 
-:set guioptions-=r 
+set guioptions-=m
+set guioptions-=T 
+set guioptions-=r 
 
 " line numbers
 set number
@@ -85,7 +88,7 @@ set cpoptions+=$
 set ch=2
 
 " set the status line the way i (derekwyatt) like it
-set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+" set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
@@ -119,4 +122,3 @@ nnoremap k gk
 " make ; do the same thing as : 
 " it’s one less key to hit every time I want to save a file
 nnoremap ; :
-
