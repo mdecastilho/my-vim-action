@@ -68,10 +68,11 @@ set guioptions-=r
 set number
 
 " indent settings
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
-set autoindent
+set smarttab
 
 " switch to paste mode, disabling all kinds of smartness 
 " and just pasting a whole buffer of text
