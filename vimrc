@@ -50,10 +50,10 @@ set t_Co=256
 " colors and fonts
 colorscheme molokai
 
-if has("gui_running")
-    if has("gui_gtk2")
-        set guifont=Inconsolata\ 12
-    elseif has("gui_win32")
+if has('gui_running')
+    if has('gui_gtk2')
+        set guifont=Inconsolata\ 10
+    elseif has('gui_win32')
         set guifont=Consolas:h10:cANSI
     endif
 endif
