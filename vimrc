@@ -4,6 +4,10 @@
 " http://wekeroad.com/2010/07/29/vim-is-your-daddy/
 " http://derekwyatt.org/vim/vim-tutorial-videos/vim-novice-tutorial-videos/
 
+" https://stackoverflow.com/questions/126853/how-do-i-set-the-ui-language-in-vim
+"set langmenu=en_US.UTF-8 " sets the language of the menu (gvim)
+"language en              " sets the language of the messages / ui (vim)
+
 " use Vim settings, rather then Vi settings (much better!).
 " this must be first, because it changes other options as a side effect.
 set nocompatible
@@ -15,8 +19,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<cr>
 " use pathogen (https://github.com/tpope/vim-pathogen) 
 " to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 " (...) never ever let Vim write a backup file! They did that in the 70’s...
 set nobackup
@@ -48,15 +51,19 @@ set history=1000
 set t_Co=256
 
 " colors and fonts
-colorscheme molokai
+colorscheme grb256
 
 if has('gui_running')
-    if has('gui_gtk2')
-        " set guifont=Inconsolata\ 10
-    elseif has('gui_win32')
-        set guifont=Consolas:h10:cANSI
-    endif
+  if has('gui_gtk2')
+    " set guifont=Inconsolata\ 10
+  elseif has('gui_win32')
+    set guifont=Fira\ Code\ Retina:h12
+  endif
 endif
+
+" https://github.com/tonsky/FiraCode/issues/462
+set renderoptions=type:directx
+set encoding=utf-8
 
 " http://vim.wikia.com/wiki/Hide_toolbar_or_menus_to_see_more_text
 " remove menu bar/toolbar/right-hand scroll bar
@@ -89,7 +96,7 @@ set cpoptions+=$
 set ch=2
 
 " set the status line the way i (derekwyatt) like it
-" set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
+set stl=%f\ %m\ %r%{fugitive#statusline()}\ Line:%l/%L[%p%%]\ Col:%v\ Buf:#%n\ [%b][0x%B]
 
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
@@ -123,3 +130,8 @@ nnoremap k gk
 " make ; do the same thing as : 
 " it’s one less key to hit every time I want to save a file
 nnoremap ; :
+
+" https://github.com/tpope/vim-fugitive/issues/508
+set diffopt+=vertical
+
+cd F:/Projects/
